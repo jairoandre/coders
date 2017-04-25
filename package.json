@@ -1,0 +1,21 @@
+{
+  "name": "coders",
+  "version": "1.0.0",
+  "description": "My AI implementation to the Coders Strike Back League.",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/webpack",
+    "test": "node_modules/.bin/mocha --compilers js:babel-core/register ./test/**/*.spec.js"
+  },
+  "author": "jairoandre",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "mocha": "^3.3.0",
+    "path": "^0.12.7",
+    "victor": "^1.1.0",
+    "webpack": "^2.4.1"
+  }
+}
