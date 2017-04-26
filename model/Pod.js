@@ -1,22 +1,27 @@
 import Victor from 'victor';
 
-function Pod(position, lifespan, boostsLeft, nextCheckPointPos, nextCheckPointDist, nextCheckPointAngle) {
+export default function Pod(position, lifespan, hasBoost, nextCPPos, nextCPDist, nextCPAngle) {
   this.position = position;
   this.lifespan = lifespan;
-  this.boostsLeft = boostsLeft;
-  this.nextCheckPointPos = nextCheckPointPos;
-  this.nextCheckPointDist = nextCheckPointDist;
-  this.nextCheckPointAngle = nextCheckPointAngle;
+  this.hasBoost = hasBoost;
+  this.nextCPPos = nextCPPos;
+  this.nextCPDist = nextCPDist;
+  this.nextCPAngle = nextCPAngle;
 }
 
 Pod.prototype.clone = function () {
-  return new Pod(this.position, this.lifespan, this.boostsLeft, this.nextCheckPointPos, this.nextCheckPointDist, this.nextCheckPointAngle);
+  return new Pod(this.position, this.lifespan, this.hasBoost, this.nextCPPos, this.nextCPDist, this.nextCPAngle);
 };
 
-function createPod(inputs, myPod, lifespan, boostsLeft) {
-  if (myPod) {
-    return new Pod(new _victor2.default(+inputs[0], +inputs[1]), lifespan, boostsLeft, new _victor2.default(+inputs[2], +inputs[3]), +inputs[4], +inputs[5]);
+Pod.prototype.move = function() {
+  let thrust = Math.round(((180 - Math.abs(this.nextCPAngle)) / 180) * 100);
+  print(`${this.nextCPPos.x} ${this.nextCPPos.y} ${thrust}`);
+}
+
+export function createPod(inputs, isItMine, lifespan, hasBoost) {
+  if (isItMine) {
+    return new Pod(new Victor(+inputs[0], +inputs[1]), lifespan, hasBoost, new Victor(+inputs[2], +inputs[3]), +inputs[4], +inputs[5]);
   } else {
-    return new Pod(new _victor2.default(+inputs[0], +inputs[1]));
+    return new Pod(new Victor(+inputs[0], +inputs[1]));
   }
 }

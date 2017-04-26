@@ -4,11 +4,13 @@
  **/
 import {createPod} from './model/Pod';
 
+let turn = 0;
+
 // game loop
 while (true) {
     var inputs = readline().split(' ');
-    let myPod = createPod(inputs);
+    let myPod = createPod(inputs, true, 100, true);
     var inputs = readline().split(' ');
     let enemyPod = createPod(inputs);
-    print(myPod.position.x + ' ' + myPod.position.y + ' 80');
+    myPod.move();
 }

@@ -17,15 +17,16 @@ function Gene(pod) {
 }
 
 Gene.prototype.toMove = function() {
-  let x, y, thrust, angle = this.nextCheckPointAngle;
+  let x, y, thrust;
+  let angle = this.nextCPAngle;
   if (this.first > 0.95 && this.pod.boostsLeft >= 1) {
     thrust = 'BOOST';    
   } else if (this.third < 0.25) {
     thrust = 0;
   } else if (this.third > 0.75) {
-    thrust = 200;
+    thrust = 100;
   } else {
-    thrust = Math.floor(200 * (this.third - 0.25) * 2)
+    thrust = Math.floor(100 * (this.third - 0.25) * 2)
   }
   if (this.second < 0.25) {
     angle += 18;
@@ -34,6 +35,7 @@ Gene.prototype.toMove = function() {
   } else {
     angle += Math.floor(-18 + 36 * (this.second - 0.25) * 2);
   }
+
 }
 
 
