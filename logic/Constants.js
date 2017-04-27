@@ -1,9 +1,11 @@
-export default Constants = {
-  MAX_WIDTH: 16000;
-  MAX_HEIGHT: 9000;
-  CHECKPOINT_RADIUS: 600;
-  POD_LIFESPAN: 100;
-  MAX_THRUST: 100;
-  POPULATION: 200;
-  GENERATIONS: 6;
+const Constants = {
+  MAX_WIDTH: 16000,
+  MAX_HEIGHT: 9000,
+  CHECKPOINT_RADIUS: 600,
+  POD_LIFESPAN: 100,
+  MAX_THRUST: 100,
+  POPULATION: 200,
+  GENERATIONS: 6
 };
+
+export default Constants;

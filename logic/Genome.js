@@ -35,7 +35,6 @@ Gene.prototype.toMove = function() {
   } else {
     angle += Math.floor(-18 + 36 * (this.second - 0.25) * 2);
   }
-
 }
 
 

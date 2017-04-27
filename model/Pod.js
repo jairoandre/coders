@@ -5,8 +5,12 @@ export default function Pod(position, lifespan, hasBoost, nextCPPos, nextCPDist,
   this.lifespan = lifespan;
   this.hasBoost = hasBoost;
   this.nextCPPos = nextCPPos;
+  this.nextCPPosAngle = nextCPPos ? Math.floor(nextCPPos.angleDeg()) : undefined;
   this.nextCPDist = nextCPDist;
   this.nextCPAngle = nextCPAngle;
+  this.desiredVector = nextCPPos ? position.clone().subtract(nextCPPos) : undefined;
+  this.desiredVectorLength = this.desiredVector ? Math.round(this.desiredVector.length()) : 0;
+  this.desiredAngle = this.desiredVector ? Math.floor(this.desiredVector.angleDeg()) : undefined;
 }
 
 Pod.prototype.clone = function () {
