@@ -4,15 +4,19 @@
  **/
 import {createPod} from './model/Pod';
 import Utils from './logic/Utils';
+import Victor from 'victor';
 
 let turn = 0;
+
+let velocity = new Victor(0, 0);
 
 // game loop
 while (true) {
     var inputs = readline().split(' ');
-    let myPod = createPod(inputs, true, 100, true);
+    let myPod = createPod(inputs, true, 100, true, velocity);
     var inputs = readline().split(' ');
     let enemyPod = createPod(inputs);
     Utils.printObj(myPod);
     myPod.move();
+    velocity = myPod.velocity.clone();
 }
