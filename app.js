@@ -4,11 +4,11 @@
  **/
 import {createPod} from './model/Pod';
 import Utils from './logic/Utils';
-import Victor from 'victor';
+import Vector from './model/Vector';
 
 let turn = 0;
 
-let velocity = new Victor(0, 0);
+let velocity = new Vector(0, 0);
 
 // game loop
 while (true) {

@@ -1,4 +1,6 @@
 import Constants from './Constants';
+import Vector from '../model/Vector';
+import Move from '../model/Move';
 
 export default function Genome(pods) {
   this.genes = [];
@@ -18,7 +20,7 @@ function Gene(pod) {
 
 Gene.prototype.toMove = function() {
   let x, y, thrust;
-  let angle = this.nextCPAngle;
+  let angle = this.podFaceAngle;
   if (this.first > 0.95 && this.pod.boostsLeft >= 1) {
     thrust = 'BOOST';    
   } else if (this.third < 0.25) {
@@ -35,6 +37,8 @@ Gene.prototype.toMove = function() {
   } else {
     angle += Math.floor(-18 + 36 * (this.second - 0.25) * 2);
   }
+  let target = new Vector(7000, angle).unfloat();
+  return new Move(target.x, target.y, thrust);
 }
 
 

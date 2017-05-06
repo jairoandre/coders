@@ -1,15 +1,5 @@
-import Victor from 'victor';
+import Vector from './Vector';
 
-Victor.prototype.setLength = function (scalar) {
-    var length = this.length();
-    if (scalar >= 0 && length !== 0) {
-        var sinA = this.y / length;
-        var sinB = this.x / length;
-        this.y = sinA * scalar;
-        this.x = sinB * scalar;
-    }
-    return this;
-};
 
 function normalizeAngle(angle) {
   return angle < 0 ? (360 + angle) : angle;
@@ -53,8 +43,8 @@ Pod.prototype.move = function() {
 
 export function createPod(inputs, isItMine, lifespan, hasBoost, velocity) {
   if (isItMine) {
-    return new Pod(new Victor(+inputs[0], +inputs[1]), lifespan, hasBoost, new Victor(+inputs[2], +inputs[3]), +inputs[4], +inputs[5], velocity);
+    return new Pod(new Vector(+inputs[0], +inputs[1]), lifespan, hasBoost, new Vector(+inputs[2], +inputs[3]), +inputs[4], +inputs[5], velocity);
   } else {
-    return new Pod(new Victor(+inputs[0], +inputs[1]));
+    return new Pod(new Vector(+inputs[0], +inputs[1]));
   }
 }
