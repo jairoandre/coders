@@ -16,7 +16,7 @@ while (true) {
     let myPod = createPod(inputs, true, 100, true, velocity);
     var inputs = readline().split(' ');
     let enemyPod = createPod(inputs);
-    Utils.printObj(myPod);
+    //Utils.printObj(myPod);
     myPod.move();
     velocity = myPod.velocity.clone();
 }
